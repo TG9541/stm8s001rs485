@@ -1,10 +1,12 @@
 # A small STM88S001 Thermometer and Break-Out PCB with RS485 Interface 
 
-[[Order from OSH Park](https://oshpark.com/shared_projects/3kzNBYuK)](https://oshpark.com/assets/badge-5b7ec47045b78aef6eb9d83b3bac6b1920de805e9a0c227658eac6e19a045b9c.png)
+![[Order from OSH Park](https://oshpark.com/shared_projects/3kzNBYuK)](https://oshpark.com/assets/badge-5b7ec47045b78aef6eb9d83b3bac6b1920de805e9a0c227658eac6e19a045b9c.png)
 
 This KiCad project provides a small PCB with an STM8S001J3M3, a RS485 interface and a DS1621S temperature sensor. Applications include [MODBUS with STM8 eForth](https://github.com/TG9541/stm8ef-modbus).
 
-The STM8S001J3M3 is a member of the "STM8S Low Density" family that's based on the "STM8S Access Line" cross-breed STM8S903, and compared with the STM8S003 it has some ([undocumented](https://github.com/TG9541/stm8ef/wiki/STM8-Low-Density-Devices#stm8s001j3)) goodies.
+The STM8S001J3M3 is a member of the "STM8S Low Density" family that's based on the "STM8S Access Line" cross-breed STM8S903, which, compared with the STM8S003, has some ([undocumented](https://github.com/TG9541/stm8ef/wiki/STM8-Low-Density-Devices#stm8s001j3)) goodies.
+
+The board is supported by [STM8 eForth](https://github.com/TG9541/stm8ef/) which means that it runs an interactive development system on the chip.
 
 A µC with merrily 5 GPIO pins is a good shield against feature creep, but the following things "had" to be included:
 
@@ -19,7 +21,7 @@ The design is simple:
 
 Components occupy both sides of a PCB of 33.4mm x 1/4" (the minimal width supported by Oshpark).
 
-On the front side there is the STM8S001J3M3, a 3.3V LDO XC6206 regulator, the RS485 signalling LEDs and some caps: 
+On the front side there is the STM8S001J3M3, a 3.3V LDO XC6206 regulator, some passive component, and the RS485 signalling LEDs: 
 
 ![STM8S001J3 RS485 schematics](doc/STM8S001J3_RS485_front.png)
 
