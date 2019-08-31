@@ -55,6 +55,8 @@ Pin|Pin STM8S001|GPIO|Features
 5|6|PB4 | **I2C_SCL**, [ADC_ETR]
 6|2|VSS|GND
 
+## PCB and Assembly
+
 Components occupy both sides of a PCB of 33.4mm x 1/4" (the minimal width supported by Oshpark).
 
 On the front side there is the STM8S001J3M3, a XC6206 3.3V LDO regulator, some passive components, and the RS485 signalling LEDs:
