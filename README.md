@@ -13,7 +13,7 @@ A µC with merrily 5 GPIO pins is a good shield against feature creep, but the f
 * most GPIOs, including the I2C bus (PB4 & PB5), and an analog input or timer output (PC5) and the are available on 6 pin header
 * a narrow PCB for a cylindrical sensors with a diameter of 7mm
 * 5V supply, 3.3V internal power supply with a LDO regulator
-* signalling LEDs for RX/TX and RS485 direction
+* signalling LEDs for RX/TX and RS485 direction (Send)
 
 Care should be taken not to exceed 6V input supply voltage. The internal 3.3V power supply is available on the header pin J2.1 (it should support about 150mA).
 
@@ -21,7 +21,7 @@ Care should be taken not to exceed 6V input supply voltage. The internal 3.3V po
 
 The design is simple: The STM8S001J3 controls the direction of the SP3485 with PA1/PD6. R3 makes sure that the SWIM interface is still usable when the SP3485 is in "/RE" mode (i.e. listening for RS485 communication).
 
-The RS485 communcation direction is "write" when LED D1 is lit. Communication is indecated by pulses on LED D2. Bright pulsing means read, and dim pulses mean write. R4 is the (optional) RS485 termination resistor.
+The RS485 communcation direction is "send" when LED D1 is active. Communication is indecated by pulses on LED D2. Bright pulsing means read, and dim pulses means write. R4 is the (optional) RS485 termination resistor.
 
 ![STM8S001J3 RS485 schematics](doc/STM8S001J3_RS485_sch.png)
 
