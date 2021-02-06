@@ -61,8 +61,12 @@ Components occupy both sides of a PCB of 33.4mm x 1/4" (the minimal width suppor
 
 On the front side there is the STM8S001J3M3, a XC6206 3.3V LDO regulator, some passive components, and the RS485 signalling LEDs:
 
-![STM8S001J3 RS485 schematics](doc/STM8S001J3_RS485_front.png)
+![STM8S001J3 RS485 front](doc/STM8S001J3_RS485_front.png)
 
 A generic 3.3V RS485 transceiver (like SP3485 or MAX3485l) and the (optional) DS1621S thermometer chip are on the backside:
 
-![STM8S001J3 RS485 schematics](doc/STM8S001J3_RS485_back.png)
+![STM8S001J3 RS485 back](doc/STM8S001J3_RS485_back.png)
+
+Here is a photo of an assembled board, together with the [RS485-CH340E dongle](https://github.com/TG9541/rs485-ch340e):
+
+![STM8S001J3 RS485 assembled](https://cdn.hackaday.io/images/3692441577484595263.png)
