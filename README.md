@@ -4,7 +4,11 @@
 
 This KiCad project provides a small PCB with an STM8S001J3M3, a RS485 interface and a DS1621S temperature sensor. Applications include [MODBUS with STM8 eForth](https://github.com/TG9541/stm8ef-modbus).
 
-The STM8S001J3M3 is a member of the "STM8S Low Density" family that's based on the "STM8S Access Line" cross-breed STM8S903, which, compared with the STM8S003, has some ([undocumented](https://github.com/TG9541/stm8ef/wiki/STM8-Low-Density-Devices#stm8s001j3)) goodies.
+Here is a photo of an assembled board, together with the [RS485-CH340E dongle](https://github.com/TG9541/rs485-ch340e):
+
+![STM8S001J3 RS485 assembled](https://cdn.hackaday.io/images/3692441577484595263.png)
+
+The STM8S001J3M3 is a member of the "STM8S Low Density" family that's based on the "STM8S Access Line" cross-breed STM8S903, which, compared with the STM8S003, has some ([undocumented](https://github.com/TG9541/stm8ef/wiki/STM8-Low-Density-Devices#stm8s001j3)) features.
 
 The board is supported by [STM8 eForth](https://github.com/TG9541/stm8ef/) which means that it runs an interactive development system on the chip: the serial interface for the console can either use RS485, or a two-wire interface on the GPIO PC5.
 
@@ -14,16 +18,17 @@ A µC with merrily 5 GPIO pins is a good shield against feature creep, but the f
 * a narrow PCB for a cylindrical sensors with a diameter of 7mm
 * 5V nominal supply, internal 3.3V power supply with an LDO regulator
 * signalling LEDs for RS485 activity (RxTx) and direction (Tx)
+* 120R termination optional 
 
-Care should be taken not to exceed 6V input supply voltage. The internal 3.3V power supply is available on the header pin J2.1 (it should be able to support about 150mA).
+Care should be taken not to exceed 6V input supply voltage. The internal 3.3V power supply is accssible on header pin J2.1 - according to the XC6206 datasheet the maximum current is 150mA.
 
 ## Design
 
-The design is simple: The STM8S001J3 controls the direction of the SP3485 with PA1/PD6. R3 makes sure that the SWIM interface is still usable when the SP3485 is in "/RE" mode (i.e. listening for RS485 communication).
-
-The RS485 communcation direction is "send" when LED D1 is active. Communication is indecated by pulses on LED D2. Bright pulsing means read, and dim pulses means write. R4 is the (optional) RS485 termination resistor.
+The design is simple: The STM8S001J3 controls the direction of the SP3485 RS485 transceivr with PA1/PD6. R3 makes sure that the SWIM interface is still usable when the SP3485 is in receive mode (i.e. listening for RS485 communication).
 
 ![STM8S001J3 RS485 schematics](doc/STM8S001J3_RS485_sch.png)
+
+LED D1 indicates RS485 communcation direction "transmit". LED D2 pulsing indecates bus activity in both directions where bright pulses indicates "read" and dim pulses "write". R4 is the (optional) RS485 termination resistor.
 
 The BOM is in the docs folder.
 
@@ -36,7 +41,7 @@ Pin|Signal
 -|-
 1|3.4 to 6V for XC6206 3.3V LDO regulator
 2|GND
-3|RS485 "A" (optional 120R termination)
+3|RS485 "A"
 4|RS485 "B"
 
 ### Description Header J2
@@ -66,7 +71,3 @@ On the front side there is the STM8S001J3M3, a XC6206 3.3V LDO regulator, some p
 A generic 3.3V RS485 transceiver (like SP3485 or MAX3485l) and the (optional) DS1621S thermometer chip are on the backside:
 
 ![STM8S001J3 RS485 back](doc/STM8S001J3_RS485_back.png)
-
-Here is a photo of an assembled board, together with the [RS485-CH340E dongle](https://github.com/TG9541/rs485-ch340e):
-
-![STM8S001J3 RS485 assembled](https://cdn.hackaday.io/images/3692441577484595263.png)
